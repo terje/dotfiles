@@ -1,14 +1,14 @@
 local M = {
   "Wansmer/treesj",
-  -- keys = { "<space>m", "<space>j", "<space>s" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },
+  event = "VeryLazy",
 }
 
 function M.config()
   require("treesj").setup {
-    use_default_keymaps = false
+    use_default_keymaps = false,
   }
 end
 

@@ -169,7 +169,7 @@ function M.config()
 
     ["<leader>cl"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     ["<leader>cq"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-    ["<leader>cs"] = { require('treesj').toggle, "Toggle Split/Join" }
+    ["<leader>cs"] = { "<cmd>lua require('treesj').toggle()<cr>", "Toggle Split/Join" }
   }
   vim.keymap.set("n", "<leader>cr", function()
     -- return ":IncRename " .. vim.fn.expand "<cword>"
