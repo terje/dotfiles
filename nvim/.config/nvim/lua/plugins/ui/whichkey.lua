@@ -200,7 +200,6 @@ function M.config()
       end,
       "Replace in project",
     },
-    ["<leader>fs"] = { "<cmd>Telescope simulators run<cr>", "Simulators" },
   }
 
   -- g - Git
