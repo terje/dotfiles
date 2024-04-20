@@ -20,7 +20,7 @@ I [use stow](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manag
 * Built-in terminal from [toggleterm.nvim](Terminal toggle)
 * LazyGit
 
-![Screenshot showing the nvim configuration](screenshot.png)
+![Screenshot showing the nvim configuration](nvim/.config/nvim/screenshot.png)
 
 Neovim running in a [Kitty](https://sw.kovidgoyal.net/kitty/) terminal on Mac OS using the [JetBrains Mono](https://www.nerdfonts.com/font-downloads) patched nerd font.
 
