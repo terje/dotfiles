@@ -18,7 +18,8 @@ local M = {
 }
 
 function M.config()
-  require("nvim-treesitter.configs").setup {
+  local treesitter = require("nvim-treesitter.configs")
+  treesitter.setup {
     ensure_installed = {
       "lua",
       "markdown",
@@ -143,6 +144,8 @@ function M.config()
     --   },
     -- },
   }
+
+  vim.treesitter.language.register('markdown', { 'mdx' })
 end
 
 return M

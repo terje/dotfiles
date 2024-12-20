@@ -51,14 +51,14 @@
 #: bold_italic_font Monaspace Neon Medium Italic
 
 #: Maple Mono
-font_family      Maple Mono Light
-italic_font        Maple Mono Light Italic
+font_family      Maple Mono Bold
+italic_font        Maple Mono Bold Italic
 bold_font        Maple Mono Regular
 bold_italic_font        Maple Mono Regular Italic
 symbol_map U+23FB-U+23FE,U+2665,U+26A1,U+2B58,U+E000-U+E00A,U+E0A0-U+E0A3,U+E0B0-U+E0D4,U+E200-U+E2A9,U+E300-U+E3E3,U+E5FA-U+E6AA,U+E700-U+E7C5,U+EA60-U+EBEB,U+F000-U+F2E0,U+F300-U+F32F,U+F400-U+F532,U+F0001-U+F1AF0 Maple Mono NF Regular
 
 #: Font size (in pts)
-font_size 16
+font_size 18
 
 # force_ltr no
 
@@ -2588,11 +2588,3 @@ tab_bar_edge                bottom
 tab_bar_style               hidden
 tab_powerline_style         slanted
 tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}
-
-
-# BEGIN_KITTY_FONTS
-# font_family      family='Maple Mono' variable_name=MapleMono style=Light
-# bold_font        family='Maple Mono' variable_name=MapleMono style=Regular
-# italic_font      family='Maple Mono' variable_name=MapleMono style='Light Italic'
-# bold_italic_font auto
-# END_KITTY_FONTS

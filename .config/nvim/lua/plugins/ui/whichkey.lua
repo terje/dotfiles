@@ -235,7 +235,7 @@ function M.config()
     },
     ["<leader>it"] = {
       function()
-        require("simctl.api").terminate(simctlArgs)
+        require("simctl.api").terminate({ deviceId = "booted" })
       end,
       "Terminate app",
     },
@@ -246,64 +246,97 @@ function M.config()
             return
           end
           simctlArgs.url = url
-          require("simctl.api").openurl(simctlArgs)
+          require("simctl.api").openurl({ deviceId = "booted" })
         end)
       end,
       "Open URL",
     },
     ["<leader>iu"] = {
       function()
-        require("simctl.api").uninstall(simctlArgs)
+        require("simctl.api").uninstall({ deviceId = "booted" })
       end,
       "Uninstall app",
     },
     ["<leader>ia"] = {
       function()
-        require("simctl.api").ui.toggleAppearance(simctlArgs)
+        require("simctl.api").ui.toggleAppearance({ deviceId = "booted" })
       end,
-      "Toggle appearance",
+      "󰔎 Toggle appearance",
     },
-    ["<leader>ic"] = {
+    ["<leader>ic"] = { " Content size" },
+    ["<leader>icc"] = {
       function()
-        require("simctl.api").ui.setContentSize(simctlArgs)
+        require("simctl.api").ui.setContentSize({ deviceId = "booted" })
       end,
       "Set content size",
     },
     ["<leader>ic+"] = {
       function()
-        require("simctl.api").ui.increaseContentSize(simctlArgs)
+        require("simctl.api").ui.increaseContentSize({ deviceId = "booted" })
       end,
       "Increase content size",
     },
     ["<leader>ic-"] = {
       function()
-        require("simctl.api").ui.decreaseContentSize(simctlArgs)
+        require("simctl.api").ui.decreaseContentSize({ deviceId = "booted" })
       end,
       "Decrease content size",
     },
     ["<leader>icr"] = {
       function()
         local simctl = require "simctl.api"
-        simctlArgs.size = simctl.ui.ContentSize.LARGE
-        simctl.ui.setContentSize(simctlArgs)
+        simctl.ui.setContentSize({
+          deviceId = "booted",
+          size = simctl.ui.ContentSize.LARGE,
+        })
       end,
       "Default content size",
     },
     ["<leader>icm"] = {
       function()
         local simctl = require "simctl.api"
-        simctlArgs.size = simctl.ui.ContentSize.EXTRA_EXTRA_EXTRA_LARGE
-        simctl.ui.setContentSize(simctlArgs)
+        simctl.ui.setContentSize({
+          deviceId = "booted",
+          size = simctl.ui.ContentSize.EXTRA_EXTRA_EXTRA_LARGE,
+        })
       end,
       "Max content size",
     },
     ["<leader>ica"] = {
       function()
         local simctl = require "simctl.api"
-        simctlArgs.size = simctl.ui.ContentSize.ACCESSIBILITY_EXTRA_EXTRA_EXTRA_LARGE
-        simctl.ui.setContentSize(simctlArgs)
+        simctl.ui.setContentSize({
+          deviceId = "booted",
+          size = simctl.ui.ContentSize.ACCESSIBILITY_EXTRA_EXTRA_EXTRA_LARGE
+        })
       end,
       "Max accessibility content size",
+    },
+    ["<leader>im"] = { "󰱻 Biometry" },
+    ["<leader>ime"] = {
+      function()
+        local simctl = require "simctl.api"
+        simctl.biometry.toggleEnrollment({ deviceId = "booted" }, function(success, isEnrolled)
+          if (success) then
+            vim.notify("Biometry is now " .. (isEnrolled and "enrolled" or "disenrolled"))
+          end
+        end)
+      end,
+      "Toggle Biometry Enrollment",
+    },
+    ["<leader>ima"] = {
+      function()
+        local simctl = require "simctl.api"
+        simctl.biometry.authenticate({ deviceId = "booted", match = true })
+      end,
+      "Authenticate (matching)",
+    },
+    ["<leader>imb"] = {
+      function()
+        local simctl = require "simctl.api"
+        simctl.biometry.authenticate({ deviceId = "booted", match = false })
+      end,
+      "Authenticate (non-matching)",
     },
   }
 
@@ -331,7 +364,7 @@ function M.config()
         local expo = require "user.expo"
         expo.uninstall(function()
           vim.schedule(function()
-            vim.fn.notify "Expo app uninstalled"
+            vim.notify "Expo app uninstalled"
             expo.run()
           end)
         end)

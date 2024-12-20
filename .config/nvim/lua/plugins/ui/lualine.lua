@@ -53,13 +53,20 @@ function M.config()
         },
       },
       lualine_y = {
-        { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
-        { "location", padding = { left = 0, right = 1 } },
+        { "location", padding = { left = 0, right = 0 } },
+        { "progress", separator = " ",                  padding = { left = 1, right = 1 } },
       },
+      -- lualine_z = {
+      -- function()
+      --   return " " .. os.date "%R"
+      -- end,
+      -- },
       lualine_z = {
-        -- function()
-        --   return " " .. os.date "%R"
-        -- end,
+        {
+          require("noice").api.statusline.mode.get,
+          cond = require("noice").api.statusline.mode.has,
+          color = { fg = "#ff9e64" },
+        }
       },
     },
     extensions = { "quickfix", "man", "fugitive" },

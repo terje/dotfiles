@@ -10,12 +10,12 @@ local M = {
 }
 
 function M.config()
-  require("chatgpt").setup({
+  require("chatgpt").setup {
     api_key_cmd = "op read op://APIKeys/OpenAI/credential --no-newline",
     openai_params = {
       model = "gpt-4",
     },
-  })
+  }
 end
 
 return M
