@@ -1,0 +1,7 @@
+theme = Kanagawa Wave
+font-family = Maple Mono NF
+font-family-bold = Maple Mono NF Medium
+font-size = 16
+font-thicken = true
+macos-option-as-alt = left
+# custom-shader = /Users/terje/Development/ghostty/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix.glsl

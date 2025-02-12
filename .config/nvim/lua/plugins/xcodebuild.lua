@@ -1,6 +1,6 @@
 return {
-  -- "wojciech-kulik/xcodebuild.nvim",
-  dir = "/Users/terje/Development/xcodebuild.nvim",
+  "wojciech-kulik/xcodebuild.nvim",
+  -- dir = "/Users/terje/Development/xcodebuild.nvim",
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "MunifTanjim/nui.nvim",
