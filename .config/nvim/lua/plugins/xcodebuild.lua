@@ -17,7 +17,7 @@ return {
         enabled = true,
       },
     })
-    local codelldbPath = os.getenv("HOME") .. "/.local/lib/codelldb-darwin-arm64/extension/adapter/codelldb"
+    local codelldbPath = os.getenv("HOME") .. "/.local/lib/codelldb/extension/adapter/codelldb"
     require("xcodebuild.integrations.dap").setup(codelldbPath)
   end,
   keys = {
