@@ -3,6 +3,7 @@ return {
   opts = {
     formatters_by_ft = {
       swift = { "swiftformat" },
+      gdscript = { "gdformat" },
     },
   },
 }
